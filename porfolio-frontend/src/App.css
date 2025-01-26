@@ -6,17 +6,15 @@
     font-optical-sizing: auto;
     font-weight: normal;
     font-style: normal;
-    overflow: hidden;
 }
 
 .parent {
     height: 90vh;
     width: 100%;
-    background-image: url('./assets/images/center-img.png');
+    background-image: url('./assets/images/center-img-bw.png');
     background-size: contain;
     background-position: bottom;
     background-repeat: no-repeat;
-    background-color: #8A34A6;
 }
 
 .container {
@@ -36,7 +34,6 @@
     background: none;
     width: 30%;
     height: 60%;
-    color: white;
     white-space: pre-wrap;
     display: flex;
     flex-direction: column;
@@ -52,10 +49,10 @@
 .left-div button {
     width: 45%;
     height: 45px;
-    background-color: white;
+    background-color: #e2e8f0;
     border: none;
     border-radius: 30px;
-    color: #8A34A6;
+    color: #0f172a;
     font-size: large;
     font-weight: bold;
 }
@@ -73,7 +70,8 @@
 .right-div button {
     display: flex;
     padding: 15px 20px;
-    background-color: rgba(255, 255, 255, 0.2);
+    /* background-color: rgba(255, 255, 255, 0.2); */
+    background-color: #d1d5db1a;
     color: white;
     font-size: 10px;
     justify-content: space-between;
@@ -100,7 +98,7 @@ Footer {
     .parent {
         height: 90vh;
         width: 100%;
-        background-image: url('./assets/images/center-img.png');
+        background-image: url('./assets/images/center-img-bw-mobile.png');
         background-size: contain;
         background-position: bottom;
         background-repeat: no-repeat;

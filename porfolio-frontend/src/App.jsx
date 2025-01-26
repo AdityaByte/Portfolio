@@ -7,24 +7,39 @@ import Footer from "./components/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Resume from "./pages/Resume";
 import { ProjectPage } from "./pages/Project";
+import { Admin } from "./pages/Admin";
+import { Success } from "./pages/Success";
 
 const App = () => {
+
   return (
     <Router>
+
       <Routes>
 
+        <Route 
+          path="/admin"
+          element={<Admin />}
+        />
+
+        <Route
+          path="/admin/success"
+          element={<Success />}
+        />
+        
         <Route
           path="/"
           element={
             <>
               <Navbar />
               <div className="parent">
+                <div className="glassy-overlay"></div>
                 <div className="container">
                   <div className="left-div">
                     <Typewriter
                       textStyle={{
                         fontSize: "2.5rem",
-                        color: "#FFF",
+                        color: "#d1d5db",
                         fontWeight: "600",
                       }}
                       startDelay={100}

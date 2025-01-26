@@ -1,0 +1,109 @@
+.parent-project {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100vw;
+    height: 90vh;
+}
+
+.project-data {
+    width: 80vw;
+    height: 80vh;
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+    margin: 2% 2%;
+}
+
+.project-data .right-div {
+    float: right;
+    border-radius: 10px;
+    height: 80%;
+    width: 40%;
+    background: white;
+    text-align: center;
+}
+
+.project-data .right-div img {
+    max-width: 50%;
+    max-height: 50%;
+}
+
+.project-data .left-div {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    color: #f1f5f9;
+    height: 100%;
+    width: 60%;
+    border-left: 8px solid;
+    padding-left: 0px 30px;
+}
+
+.project-data .left-div h1 {
+    font-size: 3rem;
+    color: #e2e8f0;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.project-data .left-div h1::before {
+    content: "Title: ";
+    font-size: 3rem;
+    font-weight: bold;
+    color: #94a3b8;
+    margin-right: 10px;
+}
+
+.project-data .left-div p {
+    font-size: 1.8rem;
+    color: #e2e8f0;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.project-data .left-div p::before {
+    content: "Description: ";
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #94a3b8;
+    margin-right: 10px;
+}
+
+.project-data .left-div a {
+    font-size: 1.5rem;
+    font-style: italic;
+    color: #e2e8f0;
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+    display: inline-block;
+}
+
+.project-data .left-div a:nth-of-type(1)::before {
+    content: "Project Link: ";
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #94a3b8;
+    margin-right: 8px;
+}
+
+.project-data .left-div a:nth-of-type(2)::before {
+    content: "Github Link: ";
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #94a3b8;
+    margin-right: 8px;
+}
+
+.project-data .left-div a:hover {
+    transform: translateY(-3px);
+    color: #94a3b8;
+}
+

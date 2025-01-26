@@ -71,3 +71,16 @@ func (repo *MongoRepository) GetProjects() ([]model.ProjectModel, error) {
 
 	return projects, nil
 }
+
+func (repo *MongoRepository) CloseConnection() error {
+
+	err := repo.client.Disconnect(context.Background())
+
+	if err != nil {
+		log.Fatalf("Error while closing the mongodb connection", err)
+		return err
+	}
+
+	log.Println("Connection closed successfully")
+	return nil
+}
