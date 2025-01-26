@@ -13,34 +13,17 @@ import (
 	"github.com/AdityaByte/portfolio-backend/repository"
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
+	"github.com/joho/godotenv"
 )
 
-// func main() {
-// 	log.Println("Application started...")
-
-// 	// controller.AddProject()
-// 	r := mux.NewRouter()
-
-// 	c := cors.New(cors.Options{
-// 		AllowedOrigins: []string{"*"}, // Allow all origins
-// 		AllowedMethods: []string{"GET", "POST", "PUT", "DELETE"},
-// 	})
-
-// 	r.HandleFunc("/projects", controller.GetProject).Methods("GET")
-
-// 	r.HandleFunc("/admin", controller.AdminController).Methods("POST")
-// 	handler := c.Handler(r)
-
-// 	err := http.ListenAndServe(":4000", handler)
-
-// 	if err != nil {
-// 		log.Fatal(err)
-// 	}
-
-// 	log.Println("Server is started at port 4000")
-// }
-
 func main() {
+
+	if err:=godotenv.Load(); err != nil {
+		log.Fatal(err)
+	}
+
+	port := os.Getenv("PORT")
+
 	log.Println("Application started successfully...")
 
 	repo, err := repository.NewMongoRepository()
@@ -60,13 +43,15 @@ func main() {
 		AllowedMethods: []string{"GET", "POST", "PUT", "DELETE"},
 	})
 
+	controller.AddProject()
+
 	r.HandleFunc("/projects", controller.GetProject).Methods("GET")
 	r.HandleFunc("/admin", controller.AdminController).Methods("POST")
 
 	handler := c.Handler(r)
 
 	server := &http.Server{
-		Addr:    ":4000",
+		Addr:    ":"+port,
 		Handler: handler,
 	}
 

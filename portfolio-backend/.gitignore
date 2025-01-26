@@ -33,3 +33,5 @@ go.sum
 go.mod
 .golangci.yml
 *.exe
+
+.env

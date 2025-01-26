@@ -9,6 +9,8 @@ import Resume from "./pages/Resume";
 import { ProjectPage } from "./pages/Project";
 import { Admin } from "./pages/Admin";
 import { Success } from "./pages/Success";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+
 
 const App = () => {
 

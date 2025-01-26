@@ -3,6 +3,7 @@ package repository
 import (
 	"context"
 	"log"
+	"os"
 
 	"github.com/AdityaByte/portfolio-backend/model"
 	"go.mongodb.org/mongo-driver/bson"
@@ -16,7 +17,10 @@ type MongoRepository struct {
 }
 
 func NewMongoRepository() (*MongoRepository, error) {
-	client, err := mongo.NewClient(options.Client().ApplyURI("mongodb://localhost:27017"))
+	
+	mongoURI := os.Getenv("MONGO_URI")
+
+	client, err := mongo.NewClient(options.Client().ApplyURI(mongoURI))
 
 	if err != nil {
 		log.Fatal(err)
