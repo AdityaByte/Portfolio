@@ -6,10 +6,11 @@ import (
 	"net/http"
 
 	"github.com/AdityaByte/portfolio-backend/model"
+	"github.com/AdityaByte/portfolio-backend/repository"
 	"github.com/AdityaByte/portfolio-backend/service"
 )
 
-func AddProject() {
+func AddProject(repo *repository.MongoRepository) {
 	ProjectModel := model.ProjectModel{
 		Title:       "Title verification system",
 		Description: "System for verifying the title of press registrar of india",
@@ -17,11 +18,13 @@ func AddProject() {
 		GithubLink:  "https://github.com/AdityaByte",
 	}
 
-	service.AddProject(&ProjectModel)
+	service.AddProject(&ProjectModel, repo)
 }
 
-func GetProject(w http.ResponseWriter, r *http.Request) {
-	projects, err := service.GetProject()
+func GetProject(w http.ResponseWriter, r *http.Request, repo *repository.MongoRepository) {
+	// projects, err := service.GetProject(&repository.MongoRepository{}) // by this we are creating new instance of it
+
+	projects , err := service.GetProject(repo)
 
 	if err != nil {
 		log.Fatal(err)

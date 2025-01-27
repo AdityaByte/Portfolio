@@ -17,7 +17,7 @@ type MongoRepository struct {
 }
 
 func NewMongoRepository() (*MongoRepository, error) {
-	
+
 	mongoURI := os.Getenv("MONGO_URI")
 
 	client, err := mongo.NewClient(options.Client().ApplyURI(mongoURI))
@@ -81,7 +81,7 @@ func (repo *MongoRepository) CloseConnection() error {
 	err := repo.client.Disconnect(context.Background())
 
 	if err != nil {
-		log.Fatalf("Error while closing the mongodb connection", err)
+		log.Fatalf("Error while closing the mongodb connection %v", err)
 		return err
 	}
 

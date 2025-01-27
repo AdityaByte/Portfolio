@@ -43,9 +43,12 @@ func main() {
 		AllowedMethods: []string{"GET", "POST", "PUT", "DELETE"},
 	})
 
-	controller.AddProject()
+	//controller.AddProject(repo)
 
-	r.HandleFunc("/projects", controller.GetProject).Methods("GET")
+	// r.HandleFunc("/projects", controller.GetProject).Methods("GET")
+	r.HandleFunc("/projects", func(w http.ResponseWriter, r *http.Request){
+		controller.GetProject(w, r, repo)
+	}).Methods("GET")
 	r.HandleFunc("/admin", controller.AdminController).Methods("POST")
 
 	handler := c.Handler(r)
