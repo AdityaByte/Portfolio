@@ -10,6 +10,7 @@ import { ProjectPage } from "./pages/Project";
 import { Admin } from "./pages/Admin";
 import { Success } from "./pages/Success";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import SkillsSection from "./pages/Skills";
 
 
 const App = () => {
@@ -18,6 +19,16 @@ const App = () => {
     <Router>
 
       <Routes>
+
+        <Route 
+          path="/skill"
+          element={
+            <>
+              <Navbar />
+              <SkillsSection />
+            </>
+          }
+        />        
 
         <Route 
           path="/admin"

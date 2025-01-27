@@ -50,7 +50,6 @@ func (repo *MongoRepository) SaveProject(data *model.ProjectModel) error {
 		return err
 	}
 
-	log.Println("Project inserted successfully", data)
 	return nil
 }
 
@@ -59,7 +58,7 @@ func (repo *MongoRepository) GetProjects() ([]model.ProjectModel, error) {
 
 	ctx := context.Background()
 
-	cursor, err := repo.collection.Find(ctx, bson.D{})
+	cursor, err := repo.collection.Find(ctx, bson.M{})
 
 	if err != nil {
 		log.Println("Error Finding projects", err)

@@ -109,8 +109,8 @@ const Navbar = () => {
                         <NavLink className={({ isActive }) => (isActive ? "active-link-2" : "li")} to="/" >Home</NavLink>
                         <NavLink className={({ isActive }) => (isActive ? "active-link-2" : "li")} to="/resume" >Resume</NavLink>
                         <NavLink className={({ isActive }) => (isActive ? "active-link-2" : "li")} to="/project" >Projects</NavLink>
+                        <NavLink className={({ isActive }) => (isActive ? "active-link-2" : "li")} to="/skill" >Skills</NavLink>
                         <NavLink className={({ isActive }) => (isActive ? "active-link-2" : "li")} to="/contact" >Contact me</NavLink>
-                        <NavLink className={({ isActive }) => (isActive ? "active-link-2" : "li")} to="/about" >About me</NavLink>
                     </ul>
                 </div>
             </Drawer>

@@ -1,44 +1,33 @@
 package controller
 
 import (
+	"encoding/base64"
 	"encoding/json"
-	"log"
 	"net/http"
 
-	"github.com/AdityaByte/portfolio-backend/model"
 	"github.com/AdityaByte/portfolio-backend/repository"
-	"github.com/AdityaByte/portfolio-backend/service"
 )
 
-func AddProject(repo *repository.MongoRepository) {
-	ProjectModel := model.ProjectModel{
-		Title:       "Title verification system",
-		Description: "System for verifying the title of press registrar of india",
-		Link:        "press-title-verification-system.vercel.com",
-		GithubLink:  "https://github.com/AdityaByte",
+func GetProjectController(w http.ResponseWriter, r *http.Request, repo *repository.MongoRepository) {
+	if r.Method != http.MethodGet {
+		http.Error(w, "GET method is allowed only", http.StatusMethodNotAllowed)
+		return
 	}
 
-	service.AddProject(&ProjectModel, repo)
-}
-
-func GetProject(w http.ResponseWriter, r *http.Request, repo *repository.MongoRepository) {
-	// projects, err := service.GetProject(&repository.MongoRepository{}) // by this we are creating new instance of it
-
-	projects , err := service.GetProject(repo)
-
+	projects, err := repo.GetProjects()
 	if err != nil {
-		log.Fatal(err)
-		http.Error(w, "Failed to get projects", http.StatusInternalServerError)
+		http.Error(w, "Error fetching projects from database", http.StatusInternalServerError)
 		return
+	}
+
+	for i := range projects {
+		projects[i].File.Data = []byte(base64.StdEncoding.EncodeToString(projects[i].File.Data))
 	}
 
 	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
 
-	encoder := json.NewEncoder(w)
-	if err := encoder.Encode(projects); err != nil {
-		log.Fatal(err)
-		http.Error(w, "Error encoding project data", http.StatusInternalServerError)
-		return
+	if err := json.NewEncoder(w).Encode(projects); err != nil {
+		http.Error(w, "Error encoding response to JSON", http.StatusInternalServerError)
 	}
-
 }

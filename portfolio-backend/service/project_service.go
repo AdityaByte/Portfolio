@@ -7,29 +7,20 @@ import (
 	"github.com/AdityaByte/portfolio-backend/repository"
 )
 
-func AddProject(projectModel * model.ProjectModel, repo *repository.MongoRepository) {
 
-	// repo, err := repository.NewMongoRepository()
+func AddProject(projectModel *model.ProjectModel, repo *repository.MongoRepository)  error  {
 
-	// if err != nil {
-	// 	log.Fatal(err)
-	// }
-	
 	err := repo.SaveProject(projectModel)
 
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 
+	return nil
 }
 
 
 func GetProject(repo *repository.MongoRepository) ([]model.ProjectModel, error) {
-	// repo, err := repository.NewMongoRepository()
-
-	// if err != nil {
-	// 	log.Fatal(err)
-	// }
 
 	projects, err := repo.GetProjects()
 

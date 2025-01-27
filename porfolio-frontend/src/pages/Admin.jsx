@@ -7,7 +7,6 @@ export const Admin = () => {
     const [data, setData] = useState({
         username: "",
         password: "",
-        // Add more fields as needed
       });
 
     const navigate = useNavigate();

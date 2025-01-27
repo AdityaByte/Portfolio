@@ -3,21 +3,19 @@
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: 90vh;
+    height: 80vh;
 }
 
 .project-data {
     width: 80vw;
     height: 80vh;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     margin: 2% 2%;
-    
 }
 
 .project-data .right-div {
-    float: right;
     border-radius: 10px;
     height: 80%;
     width: 40%;
