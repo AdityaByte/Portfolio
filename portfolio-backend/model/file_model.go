@@ -3,5 +3,5 @@ package model
 type FileMetaData struct {
 	Name string `bson:"name" json:"name"`
 	Type string `bson:"type" json:"type"`
-	Data []byte `bson:"data" json:"data"`
+	Data string `bson:"data" json:"data"`
 }

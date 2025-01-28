@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: 80vh;
+    height: 100vh;
 }
 
 .project-data {
@@ -12,7 +12,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 2% 2%;
+    margin: 0 auto;
 }
 
 .project-data .right-div {
@@ -33,7 +33,6 @@
     border-radius: 10px;
 }
 
-
 .project-data .left-div {
     padding: 10px;
     display: flex;
@@ -44,7 +43,7 @@
     height: 100%;
     width: 60%;
     border-left: 8px solid;
-    padding-left: 0px 30px;
+    padding-left: 30px;
 }
 
 .project-data .left-div h1 {
@@ -111,3 +110,51 @@
     color: #94a3b8;
 }
 
+@media (max-width: 768px) {
+    .project-data {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+    }
+
+    .project-data .left-div,
+    .project-data .right-div {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .project-data .left-div {
+        border-left: none;
+        border-top: 8px solid;
+        padding-top: 20px;
+    }
+
+    .project-data .left-div h1 {
+        font-size: 2rem;
+    }
+
+    .project-data .left-div h1::before {
+        font-size: 2rem;
+    }
+
+    .project-data .left-div p {
+        font-size: 1.2rem;
+    }
+
+    .project-data .left-div p::before {
+        font-size: 1.2rem;
+    }
+
+    .project-data .left-div a {
+        font-size: 1rem;
+    }
+
+    .project-data .left-div a::before {
+        font-size: 1rem;
+    }
+
+    .project-data .right-div img {
+        height: auto;
+    }
+}

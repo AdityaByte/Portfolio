@@ -17,8 +17,7 @@ const App = () => {
 
   return (
     <Router>
-
-      <Routes>
+      <Routes>   
 
         <Route 
           path="/skill"
@@ -28,7 +27,7 @@ const App = () => {
               <SkillsSection />
             </>
           }
-        />        
+        />   
 
         <Route 
           path="/admin"

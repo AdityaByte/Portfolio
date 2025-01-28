@@ -1,6 +1,7 @@
 package controller
 
 import (
+	"encoding/base64"
 	"encoding/json"
 	"io"
 	"log"
@@ -96,10 +97,12 @@ func AddProjectController(w http.ResponseWriter, r *http.Request, repo *reposito
 		return
 	}
 
+	base64EncodedFile := base64.StdEncoding.EncodeToString(fileBytes)
+
 	fileModel := model.FileMetaData{
 		Name: fileHeader.Filename,
 		Type: http.DetectContentType(fileBytes),
-		Data: fileBytes,
+		Data: base64EncodedFile,
 	}
 
 	projectModel := model.ProjectModel{
