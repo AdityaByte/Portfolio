@@ -95,8 +95,9 @@ const Navbar = () => {
                 closable={true}
                 width={drawerWidth}
                 height="100vh"
-                bodyStyle={{ padding: 0, backgroundColor: "#8A34A6" }}
-                closeIcon={<CloseOutlined style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'white', color: '#64748b', fontWeight: "bold", padding: "10px", borderRadius: "10px", border: "2px solid #64748b"}} />}
+                bodyStyle={{ padding: 0}}
+                closeIcon={<CloseOutlined style={{ position: 'absolute', top: '10px', right: '10px', backgroundColor: 'white', color: '#64748b', fontWeight: "bold", padding: "10px", borderRadius: "10px"}} />}
+                headerStyle={{backgroundColor: "#1e293b"}}
             >
                 <div className="drawer" style={{height: "100%", color: "#fff" }}>
                     <h1 style={{ textAlign: "center", padding: "20px" }}>Menu</h1>

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
 const SkillsSection = () => {
   const skills = [
@@ -23,14 +24,16 @@ const SkillsSection = () => {
       <SkillsContainer>
         {skills.map((skill, index) => (
           <SkillItem key={index}>
+            <CircularProgressbar
+              value={skill.level}
+              text={`${skill.level}%`}
+              styles={buildStyles({
+                textColor: '#fff',
+                pathColor: '#64748b',
+                trailColor: '#e0e0e0',
+              })}
+            />
             <SkillName>{skill.name}</SkillName>
-            <SkillBar>
-              <SkillLevel
-                initial={{ width: 0 }}
-                whileInView={{ width: `${skill.level}%` }}
-                transition={{ duration: 1, delay: index * 0.2 }}
-              />
-            </SkillBar>
           </SkillItem>
         ))}
       </SkillsContainer>
@@ -41,6 +44,8 @@ const SkillsSection = () => {
 const Section = styled.section`
   padding: 4rem 2rem;
   text-align: center;
+  height: 90vh;
+  width: 100vw;
 `;
 
 const Title = styled.h2`
@@ -50,33 +55,24 @@ const Title = styled.h2`
 `;
 
 const SkillsContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
   max-width: 800px;
   margin: 0 auto;
 `;
 
 const SkillItem = styled.div`
-  margin-bottom: 1.5rem;
+  width: 100px;
+  text-align: center;
 `;
 
 const SkillName = styled.span`
   display: block;
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  margin-top: 0.5rem;
   color: #fff;
-`;
-
-const SkillBar = styled.div`
-  width: 100%;
-  height: 10px;
-  background: #e0e0e0;
-  border-radius: 5px;
-  overflow: hidden;
-`;
-
-const SkillLevel = styled(motion.div)`
-  height: 100%;
-  background: #007bff;
-  border-radius: 5px;
 `;
 
 export default SkillsSection;

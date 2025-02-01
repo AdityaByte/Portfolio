@@ -61,7 +61,7 @@ export const Admin = () => {
 }
 const AdminContainer = styled.div`
     width: 100vw;
-    height: 90vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -100,13 +100,14 @@ const AdminH1 = styled.h1`
 
 const AdminInput = styled.input`
     width: 80%;
-    height: 40px;
+    height: 50px;
     border: 2px solid #475569;
     border-radius: 10px;
     padding: 5px 10px;
     background-color: rgba(71, 85, 105, 0.1);
     color: #f1f5f9;
     outline: none;
+    font-size: 15px;
 
     &:focus {
         border-color: #38bdf8;

@@ -55,6 +55,8 @@ func main() {
 		controller.AddProjectController(w, r, repo)
 	}).Methods("POST")
 
+	r.HandleFunc("/contact", controller.ContactController).Methods("POST")
+
 	handler := c.Handler(r)
 
 	server := &http.Server{

@@ -11,13 +11,23 @@ import { Admin } from "./pages/Admin";
 import { Success } from "./pages/Success";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import SkillsSection from "./pages/Skills";
-
+import { ContactPage } from "./pages/Contact";
 
 const App = () => {
 
   return (
     <Router>
-      <Routes>   
+      <Routes>  
+
+        <Route
+          path="/contact"
+          element={
+            <>
+              <Navbar />
+              <ContactPage />
+            </>
+          }
+          />
 
         <Route 
           path="/skill"
