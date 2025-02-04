@@ -1,5 +1,6 @@
 {
   "name": "porfolio-frontend",
+  "homepage": "https://adityabyte.github.io/Portfolio/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,7 +8,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -17,6 +20,7 @@
     "@react-pdf-viewer/default-layout": "^3.12.0",
     "antd": "^5.23.2",
     "framer-motion": "^12.0.6",
+    "gh-pages": "^6.3.0",
     "pdfjs-dist": "^3.11.174",
     "react": "^18.3.1",
     "react-circular-progressbar": "^2.1.0",
