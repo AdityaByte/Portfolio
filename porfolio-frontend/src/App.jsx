@@ -16,7 +16,7 @@ import { ContactPage } from "./pages/Contact";
 const App = () => {
 
   return (
-    <Router>
+    <Router basename="/Portfolio/">
       <Routes>  
 
         <Route
